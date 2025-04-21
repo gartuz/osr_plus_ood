@@ -1,0 +1,675 @@
+%% bare_jrnl_compsoc.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% Computer Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any con8tributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{fontspec}
+
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[10pt,journal,compsoc]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+%
+% Note that some packages require special options to format as the Computer
+% Society requires. In particular, Computer Society  papers do not use
+% compressed citation ranges as is done in typical IEEE papers
+% (e.g., [1]-[4]). Instead, they list every citation separately in order
+% (e.g., [1], [2], [3], [4]). To get the latter we need to load the cite
+% package with the nocompress option which is supported by cite.sty v4.0
+% and later. Note also the use of a CLASSOPTION conditional provided by
+% IEEEtran.cls V1.7 and later.
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a sans serif font rather
+% than the serif font used in traditional IEEE formatting and thus the need
+% to invoke different subfig.sty package options depending on whether
+% compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%La obsolescencia programada es vista
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Investigación 1:\\ Obsolescencia Programada\\ en el Hardware}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+
+\author{José Pereira ,~\IEEEmembership{Estudiante,~UCR,}
+        Kevin~Barboza,~\IEEEmembership{Estudiante,~UCR,}
+        and~Gabriel~Martínez,~\IEEEmembership{Estudiante,~UCR}% <-this % stops a space
+}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~1, No.~1, August~2024}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2015 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society jorunal
+% papers don't need this extra clearance.)
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEtitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+La obsolescencia programada es una estrategia empresarial que implica diseñar productos con una vida útil limitada para fomentar su reemplazo\textbf{} generando así beneficios a corto plazo para las empresas, pero a su vez perjudicando la confianza del consumidor y trayendo consecuencias significativas para el medio ambiente\cite{bisschop2022designed}.
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Inovación, Patente, Vida Útil, Avances Tecnológicos Legítimos, Robusto, Utilitarismo, Overclocking.
+\end{IEEEkeywords}}
+
+
+% make the title area
+\maketitle
+
+
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEtitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynontitleabstractindextext when the compsoc 
+% or transmag modes are not selected <OR> if conference mode is selected 
+% - because all conference papers position the abstract like regular
+% papers do.
+\IEEEdisplaynontitleabstractindextext
+% \IEEEdisplaynontitleabstractindextext has no effect when using
+% compsoc or transmag under a non-conference mode.
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\IEEEraisesectionheading{\section{Introducción}\label{sec:introduction}}
+% Computer Society journal (but not conference!) papers do something unusual
+% with the very first section heading (almost always called "Introduction").
+% They place it ABOVE the main text! IEEEtran.cls does not automatically do
+% this for you, but you can achieve this effect with the provided
+% \IEEEraisesectionheading{} command. Note the need to keep any \label that
+% is to refer to the section immediately after \section in the above as
+% \IEEEraisesectionheading puts \section within a raised box.
+
+
+
+
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps (small caps for compsoc).
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by the IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{S}{e}  define a la obsolescencia como el proceso por el que un producto o un equipo queda obsoleto como resultado de los avances tecnológicos \cite{RAE_obsolescencia}. El calificativo “obsoleto” se le otorga a aquello que ya no sirve
+debido a diversos factores desde la recepción de daños físicos, hasta el desgaste ocasionado por el
+uso, sin embargo, el presente documento pretente dar enfásis en las ocasiones donde algunas empresas limitan intencionalmente la durabilidad de un producto para asegurarse el continuo consumo de sus artículos.
+A causa de lo difícil que es demostrar la presencia de la obsolescencia programada, el equipo
+propone el análisis de factores que sean significantes en la arquitectura de computadores que
+causen la obsolescencia de los mismos al igual que el estudio de casos donde el hardware resulta
+funcional a pesar de estar marcado como obsoleto por la empresas y las razones de dicho fenómeno;
+todo esto con el objetivo principal del descubrimiento de formas de rescatar equipo considerado
+obsoleto, confirmar o desmentir la existencia de la obsolescencia programada y brindar
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+consideraciones éticas sobre las consecuencias de limitar la utilidad del hardware.
+
+
+\subsection{Historia}
+La historia de la obsolescencia se remonta a siglos atrás, aunque se ha intensificado con la creciente presencia de la tecnología en la vida cotidiana. Por ejemplo, a mediados del siglo XIX las personas compraban artículos de consumo cotidiano a diversos vendedores, muchos de estos sospechosos de vender productos de baja calidad con intenciones de obligar a sus clientes a seguir acudiendo al negocio\cite{maycroft2009consumption}.La obsolescencia programada como práctica empresarial surgió con fuerza en el siglo XX, cuando las empresas comenzaron a diseñar productos con una vida útil limitada para fomentar el consumo continuo. Aunque la idea de vender productos que eventualmente necesitarán reemplazo no era nueva, fue en la década de 1920 cuando esta estrategia empezó a aplicarse de forma deliberada. Uno de los primeros ejemplos se vio en la industria de las bombillas, donde los fabricantes acordaron reducir su durabilidad para asegurar una demanda constante a esta práctica se le llama "death-dating". 
+
+La Depresión de los años 30 también se considera un factor importante en la introducción de obsolescencia programada en el mercado, esto debido a limitaciones económicas de la sociedad estadounidense, garantizándose la venta de productos, pero reduciendo su vida útil. En la década de 1950 empezaron a surgir las primeras discusiones acerca de la obsolescencia programada, pues dicha característica ya se había expandido a sectores como la electrónica, los electrodomésticos y la industria automotriz, promovida por la idea de que productos de corta duración estimularían las economías basadas en el consumo, sin embargo la población empezaría a notar que la duración de los productos no era considerable, comparada con el precio de los mismos.
+
+La tecnología avanzó rápidamente, y la obsolescencia programada se diversificó, incluyéndose formas como la obsolescencia tecnológica (productos que se vuelven obsoletos debido a nuevos modelos), la obsolescencia estilística (cambio de diseño y tendencias), y la funcional (limitaciones deliberadas en actualizaciones y soporte)\cite{maycroft2009consumption}. Aunque esta práctica ha generado beneficios económicos a corto plazo para las empresas, también ha despertado críticas por su impacto ambiental y la creciente generación de residuos. Con el tiempo, esta estrategia se ha convertido en un tema de debate ético, especialmente en la era moderna, donde se busca un equilibrio entre el crecimiento económico y la sostenibilidad. Actualmente, muchas organizaciones y consumidores exigen regulaciones que limiten la obsolescencia programada, promoviendo productos de larga duración y una economía más circular.
+
+% needed in second column of first page if using \IEEEpubid
+%\IEEEpubidadjcol
+
+\subsubsection{Estado actual y sus desafíos}
+Si nos referimos a la obsolescencia programada, esta se manifiesta a través de la obsolescencia
+técnica, donde los componentes fallan antes de lo previsto; la obsolescencia estilística, donde los
+productos se consideran pasados de moda por las tendencias; y la inclusión de características
+superfluas que aumentan los costos sin añadir valor real\cite{maycroft2009consumption}.
+Los microchips ejemplifican la obsolescencia tecnológica, ya que la Ley de Moore predijo que su número de transistores se duplicaría cada dos años, lo que hace que los dispositivos basados en ellos tengan una vida útil limitada desde su creación. Este problema se extiende a la informática en general, donde el rápido avance tecnológico genera más productos, y la reducción del tamaño de los chips y otros componentes electrónicos dificulta el reciclaje debido a su complejidad. Además, los productos tienden a diseñarse de forma que desalienta la reparación, como el uso de componentes soldados a la placa base, lo que favorece la obsolescencia y agrava los problemas de residuos \cite{tuominen2021planned}. Los desafíos se centran en extender la vida útil de los computadores para el procesamiento de datos y la ejecución de programas en un contexto de constante innovación tecnológica. Esto implica apoyar a empresas que faciliten la reparación y actualización de equipos mediante el reemplazo de componentes dañados o con mayor desgaste,  con el objetivo de prevenir el desperdicio masivo y promover un consumo más responsable. \cite{lebel2012wasting}.
+
+En una computadora, los componentes más vulnerables al desgaste y, por lo tanto, propensos a fallar primero incluyen las baterías, los discos duros mecánicos (HDD), los ventiladores y los condensadores de la tarjeta madre. Las baterías suelen tener un número limitado de ciclos de carga, lo que las hace propensas a deteriorarse. Los discos duros mecánicos tienen piezas móviles que se desgastan con el tiempo, mientras que los ventiladores sufren daños al estar en funcionamiento continuo. Los condensadores también pueden fallar debido a su exposición a calor y cargas constantes, afectando la estabilidad de la tarjeta madre. Algunos casos actuales de empresas que han implementado cierto tipo de obsolescenia son el caso de Apple y Microsoft, el primero fue demandado de manera colectiva en 2017  Estas fallas contribuyen a la percepción de obsolescencia, ya que suelen requerir reemplazos o reparaciones que pueden ser costosos o difíciles de realizar; para mejorar la durabilidad de los componentes que son propensos a fallar, es posible aplicar ciertas mejoras que, si bien pueden incrementar el costo de fabricación, extienden la vida útil de los dispositivos. 
+
+Aquí se describe cómo se podría aumentar la durabilidad de algunos componentes clave, junto con una estimación porcentual aproximada de cómo estos cambios afectarían el precio final del componente:Utilizar baterías de iones de litio de alta calidad con sistemas avanzados de gestión de energía, así como la inclusión de tecnología de carga inteligente para evitar sobrecarga; para los HDD, se pueden usar materiales de mayor resistencia en los componentes mecánicos y añadir mejores sellados para reducir la entrada de polvo, en los SSD, la tecnología de celdas de nivel único (SLC) es mucho más duradera que las de múltiples niveles (MLC o TLC); utilizar ventiladores con rodamientos de alta calidad (como rodamientos de fluido dinámico) en lugar de rodamientos de manguito o de bola estándar. También, incorporar sistemas de enfriamiento pasivo o líquida, aunque esta última opción es más costosa, usar condensadores sólidos de alta calidad (en lugar de los condensadores electrolíticos comunes) puede reducir la probabilidad de fallas relacionadas con el calor y la carga constante. En general, la aplicación de estos cambios para extender la durabilidad de una computadora podría resultar en un aumento del 20-50 por ciento del costo total de los componentes, sin embargo, estos costos adicionales contribuyen a productos con mayor vida útil, menos requerimientos de reparación o reemplazo, y un menor impacto ambiental al reducir la generación de residuos electrónicos.
+
+Con base en ello se presentan importantes debates éticos, desde una perspectiva ética y ambiental, ofrecer componentes económicos de corta duración y alta obsolescencia fomenta el ciclo de compra y desecho, generando más residuos electrónicos y aumentando la demanda de recursos naturales. Se argumenta que la tecnología debe orientarse hacia la sostenibilidad y la durabilidad para reducir la huella ecológica y fomentar el consumo responsable; pero también ofrecer componentes económicos permite que más personas tengan acceso a tecnología que de otro modo no podrían pagar. Esto puede cerrar la brecha tecnológica y permitir a los usuarios de menor poder adquisitivo contar con dispositivos que, aunque menos duraderos, cumplen con sus necesidades básicas. Además, las opciones económicas pueden hacer que los dispositivos sean más accesibles para estudiantes y personas en regiones con menos recursos. tambiénuna descontinuación rápida de componentes puede forzar a los usuarios a cambiar dispositivos completos cuando solo una parte necesita ser reemplazada. Esto afecta especialmente a consumidores que buscan extender la vida útil de sus dispositivos. Algunos argumentan que las empresas deberían mantener componentes clave disponibles por un período razonable (al menos 5-10 años después de la última venta del dispositivo) para permitir reparaciones. Esta política puede ser una manera ética de gestionar la innovación mientras se minimiza el desperdicio y se respeta el derecho de los consumidores a mantener sus dispositivos funcionales.
+
+
+\subsubsection{Tendencias hacia el futuro}
+El tema de la obsolescencia en hardware supone grandes consecuencias hacia el futuro, esto se
+presume en el favorecimiento a desechar computadores por causas relacionadas a patentes, la
+empresa o incluso la obsolescencia programada de los componentes\cite{tacha2009mitigate},
+muchas empresas podrían presentar mayor interés a realizar computadores y componentes de menor calidad a fin de salvaguardar la economía que tienen y afectando completamente a la sociedad en el proceso al igual que a intensificar la brecha socioeconómica de muchos sectores que no pueden permitirse cambiar un dispositivo con la frecuencia esperada.
+También se presiente la decaída del pensamiento utilitarista en cuanto a los recursos que se
+necesitan con respecto a los que se ofrecen, incentivando a buscar medios para operar una
+computadora más allá de sus especificaciones de diseño, comprometiendo la durabilidad y vida útil
+de los componentes internos. Presentando dilemas éticos importantes en el ámbito profesional de
+la computación. \cite{4116968} \cite{9425823}
+
+
+\section{Discusiones}
+Es fundamental tener en cuenta que la obsolescencia programada no siempre es fácil de identificar y puede estar entrelazada con avances tecnológicos legítimos. Las patentes y su registro pueden ser una herramienta útil, aunque no infalible, para distinguir entre avances tecnológicos legítimos \cite{6116759} \cite{8714681} y obsolescencia programada en el contexto de las computadoras personales. Sin embargo, algunas empresas pueden optar por mantener sus innovaciones en secreto comercial en lugar de patentarlas\cite{871503}.
+La escalabilidad no es una prioridad en el diseño de desktops porque las necesidades de los usuarios, las limitaciones físicas, el costo y la complejidad hacen que sea más práctico centrarse en otros aspectos como el precio-rendimiento, la eficiencia energética y el rendimiento gráfico \cite{hennessy2017computer}. Aunque la escalabilidad no es la razón principal, los servidores a menudo duran más que los desktops debido a diseños más robustos, condiciones ambientales óptimas con temperatura controlada y personal de TI encargado de mantenimiento. Estas condiciones hacen más díficil aún establecer un punto de comparación entre distintas tecnologías desarrolladas por un mismo fabricante para verdaderamente identificar si existe o no algún tipo de obsolescencia programada orientada a un segmento de mercado específico.
+La obsolescencia programada es vista como una estrategia empresarial que implica diseñar productos con una vida útil limita para fomentar su reemplazo, generando así beneficios a corto plazo para las empresas, pero a su vez perjudicando la confianza del consumidor y trayendo consecuencias significativas para el medio ambiente \cite{bisschop2022designed}.El desarrollo de componentes duraderos implica mayores costos iniciales en investigación, desarrollo y materiales de alta calidad que puedan soportar un uso prolongado. Componentes como los procesadores, las memorias y las unidades de almacenamiento de estado sólido requieren tecnologías avanzadas y pruebas exhaustivas para asegurar su resistencia. Estos elementos incrementan los costos para los fabricantes y, en consecuencia, para los consumidores finales. En contraste, los componentes diseñados para tener una vida útil limitada suelen construirse con materiales menos costosos, que requieren menos pruebas de calidad, permitiendo que las empresas reduzcan sus costos de producción. Sin embargo, aunque los productos de corta duración resultan más económicos a corto plazo, terminan siendo más costosos en términos de impacto ambiental y económico a largo plazo, debido a la necesidad de reemplazarlos constantemente.
+
+La obsolescencia programada, donde los productos se diseñan para tener una vida útil limitada, se contrapone directamente a los principios de la innovación verde, que busca la sostenibilidad y la reducción del impacto ambiental. Mientras la innovación verde busca productos duraderos, reparables y actualizables, la obsolescencia programada fomenta el consumo y el reemplazo frecuente, generando más residuos y consumiendo más recursos. La obsolescencia programada puede afectar negativamente la eficiencia de la innovación verde al desincentivar la inversión en tecnologías verdes duraderas, porque las empresas preferirán invertir en productos que serán reemplazados rápidamente en vez de invertir en tecnologías verdes más costosas pero con mayor durabilidad.  Según Li et al. (2021), las regulaciones ambientales obligatorias, como las de comando y control, son más efectivas para impulsar la innovación verde en comparación con las regulaciones voluntarias. Esto dificulta la adopción de tecnologías verdes más duraderas y eficientes, ya que los consumidores pueden verse tentados por productos más nuevos y "de moda", aunque sean menos sostenibles y las empresas de fabricación de hardware responderán a dicha demanda lo que los alejará de poder tomar decisiones que reduzcan el impacto ambiental de manera voluntaria. Sin embargo, dichas empresas reconocen que cada sujeto de innovación también necesita poner rápidamente la I+D tecnológica en el mercado y convertirla en beneficios económicos y ambientales \cite{li2021different}. 
+
+A partir de la discución desarrollada entre el equipo que realiza este documento se llegaron a las siguientes propuestas para reducir el efecto de dicho fenomeno en las computadoras:
+
+Integrar la educación sobre obsolescencia programada y sostenibilidad en el currículo académico es esencial para formar futuros profesionales conscientes del impacto ambiental de sus decisiones. Incluir en carreras de ingeniería, administración y ciencias ambientales temas relacionados con el consumo responsable y modelos de producción sostenible permitirá que los estudiantes conozcan las repercusiones éticas y ecológicas de la tecnología de corta duración. Además, la universidad puede ofrecer talleres y charlas para la comunidad, orientados a enseñar cómo reparar y reutilizar dispositivos tecnológicos. Este enfoque práctico fomentará en los estudiantes y en la comunidad una cultura de "reparación en lugar de reemplazo", disminuyendo el desperdicio electrónico y maximizando la vida útil de los productos.
+
+Fomentar la investigación y el desarrollo de tecnologías de bajo impacto ambiental es una oportunidad para que la universidad impulse soluciones sostenibles. Para ello, se podrían establecer fondos o becas destinados a proyectos de investigación enfocados en la creación de tecnología duradera, reciclable y energéticamente eficiente. Además, la creación de laboratorios especializados en economía circular y reciclaje de tecnología permitiría a estudiantes e investigadores explorar métodos para extender la vida útil de dispositivos y aprovechar al máximo sus componentes. Estas iniciativas ayudarían a posicionar a la universidad como líder en innovación sostenible y motivarían a los estudiantes a buscar soluciones tecnológicas que beneficien tanto a la sociedad como al medio ambiente.
+
+Las alianzas estratégicas entre la universidad, la industria tecnológica y el gobierno pueden ser un medio efectivo para promover prácticas sostenibles. Mediante convenios con empresas tecnológicas, la universidad podría impulsar la investigación y el desarrollo de dispositivos modulares y componentes de alta calidad que faciliten la reparación y la actualización, disminuyendo así la necesidad de reemplazo. Además, colaborar con el gobierno en la creación de políticas públicas podría fomentar la producción de tecnología duradera, a través de incentivos fiscales o normativas que premien a las empresas que adopten prácticas sostenibles. Esta colaboración multi-sectorial permitiría un enfoque más integral y efectivo para enfrentar la obsolescencia programada.
+
+La universidad tiene un papel clave en el impulso del emprendimiento enfocado en la sostenibilidad, apoyando a estudiantes y egresados a desarrollar proyectos que promuevan el diseño ético y sostenible. A través de incubadoras de empresas y fondos de capital semilla, la universidad puede proporcionar los recursos y el soporte necesarios para que las ideas innovadoras prosperen en el mercado. Crear premios o reconocimientos para proyectos que contribuyan a reducir la obsolescencia programada y que promuevan la innovación verde incentivará a la comunidad universitaria a buscar soluciones con un impacto positivo. Este enfoque ayudará a establecer una cultura de emprendimiento consciente y a desarrollar tecnologías que prioricen la sostenibilidad.
+
+La sensibilización de la comunidad universitaria sobre los efectos de la obsolescencia programada es crucial para crear un cambio cultural hacia el consumo responsable. Mediante campañas en el campus y en redes sociales, la universidad puede promover un conocimiento más profundo de las prácticas de consumo sostenible y el impacto ambiental de la tecnología desechable. Además, fomentar una cultura de mantenimiento y reparación de dispositivos a través de programas específicos de formación permitirá que estudiantes y personal prolonguen la vida útil de sus equipos, generando así un menor volumen de residuos tecnológicos. Estas acciones no solo benefician al medio ambiente, sino que también fortalecen la conciencia de responsabilidad entre la comunidad universitaria.
+
+Establecer políticas de consumo responsable dentro de la universidad es una manera efectiva de practicar lo que se predica en términos de sostenibilidad. Una política de compra de tecnología sostenible, que priorice productos duraderos y de bajo impacto ambiental, es un primer paso importante. La universidad también podría fomentar el uso de dispositivos reacondicionados o que cuenten con garantía de reparabilidad, minimizando así el ciclo de compra y desecho de tecnología. Además, programas de reciclaje de dispositivos electrónicos en el campus, en colaboración con empresas especializadas, ayudarán a gestionar de forma adecuada los desechos tecnológicos, promoviendo la economía circular. De esta manera, la universidad no solo actúa como modelo de sostenibilidad, sino que también contribuye activamente a la reducción de residuos tecnológicos.
+
+\section{Conclusiones}
+En nuestra investigación esperamos descubrir que las patentes pueden ser un indicador útil de avances tecnológicos legítimos en el hardware de un desktop. Pero también, será importante considerar otros factores, como la funcionalidad del producto, la facilidad de reparación y actualización, y la comunicación transparente de las empresas sobre el ciclo de vida de sus productos, esto con el fin de lograr un beneficio integral a la sociedad y al medio ambiente, esto como medio de transcisión de la industria de diseño de software para desktops hacia la Industria 5.0, donde se le pondrá más enfásis a el factor humano y la sostenibilidad. 
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff4116968
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by B6116759ibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+\begin{thebibliography}{1}
+
+\bibitem{RAE_obsolescencia}Real Academia Española Obsolescencia. (https://dle.rae.es/obsolescencia,2024), Diccionario de la lengua española
+\bibitem{maycroft2009consumption}Maycroft, N. \& Others Consumption, planned obsolescence and waste. {\em University Of Lincoln}. pp. 3-37 (2009)
+\bibitem{lebel2012wasting}LeBel, S. Wasting the future: The technological sublime, communications technologies, and e-waste. {\em Communication+ 1}. \textbf{1}, 1-19 (2012)
+\bibitem{tacha2009mitigate}Tacha, N., McCarthy, A., Powell, B. \& Veeramani, A. How to mitigate hardware obsolescence in next-generation test systems. {\em 2009 IEEE AUTOTESTCON}. pp. 229-234 (2009)
+\bibitem{4116968}Clements, A. Embedding Ethics in Computer Architecture. {\em Proceedings. Frontiers In Education. 36th Annual Conference}. pp. 7-12 (2006)
+\bibitem{9425823}Alidoosti, R. Ethics-driven Software Architecture Decision Making. {\em 2021 IEEE 18th International Conference On Software Architecture Companion (ICSA-C)}. pp. 90-91 (2021)
+\bibitem{6116759}Chen, X., Ha, N. \& Niu, X. Impact of IPR System on Patent Based Innovation in China: Empirical Studies over Chinese Patent Reform in 2000. {\em 2011 International Conference On Information Management, Innovation Management And Industrial Engineering}. \textbf{2} pp. 318-323 (2011)
+\bibitem{8714681}Cao, J. Evaluation of Innovation Efficiency and Innovation Mode of Patent-Intensive Industries. {\em 2019 5th International Conference On Information Management (ICIM)}. pp. 301-307 (2019)
+\bibitem{hennessy2017computer}Hennessy, J. \& Patterson, D. Computer Architecture: A Quantitative Approach. (Elsevier Science,2017), https://books.google.co.cr/books?id=cM8mDwAAQBAJ
+\bibitem{bisschop2022designed}
+L. Bisschop, Y. Hendlin, and J. Jaspers, ``Designed to break: planned obsolescence as corporate environmental crime,'' \textit{Crime, Law and Social Change}, vol. 78, no. 3, pp. 271--293, 2022.
+\bibitem{871503}González Ruíz, D. Developing and protecting intellectual property in virtual projects : trade secret protection in telecommunications = Desarrollo y protección de propiedad intelectual en proyectos virtuales : protección de secretos comerciales en telecomunicaciones. , https://www.cervantesvirtual.com/obra/developing-and-protecting-intellectual-property-in-virtual-projects-trade-secret-protection-in-telecommunications-desarrollo-y-proteccion-de-propiedad-intelectual-en-proyectos-871503
+\bibitem{li2021different}Li, H., Zhao, C., Tang, X., Cheng, J., Lu, G., Gu, Y., Zhang, Z. \& Liu, Y. How Do Different Types of Environmental Regulations Affect Green Innovation Efficiency?. {\em Journal Of Mathematics}. \textbf{2021}, 6677334 (2021)
+\bibitem{tuominen2021planned}
+J. Tuominen, \emph{Planned obsolescence in the age of sustainability. Alternatives to disposable technology}, Bachelor's thesis, Aalto University School of Business, Information and Service Management, Advisor: R. Hekkala, 2021.
+
+\end{thebibliography}
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+
+
+% that's all folks
+\end{document}
+
+
+Subsection text here.
